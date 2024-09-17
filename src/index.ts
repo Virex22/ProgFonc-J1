@@ -29,11 +29,14 @@ const removeFruit = (stock: Fruit[]) => (fruit: string) => {
 }
 
 const checkStock = (stock: Fruit[]) => {
+    const message = ["Stock :"];
     stock.forEach((fruit) => {
-        console.log(`Fruit : ${fruit.name} | Quantity : ${fruit.quantity}`);
+        message.push(`  ${fruit.name} : ${fruit.quantity}`);
     });
+    return message.reduce((acc, curr) => acc + curr + '\n', '');
 }
 
+// Seul partie impératif du code
 function main() {
     console.log("code nul\n")
     let stock = [
@@ -52,13 +55,13 @@ function main() {
     stock = sellFruits(stock)('Pineapple')(2);
 
     console.log('checkStock');
-    checkStock(stock);
+    console.log(checkStock(stock));
 
     console.log('removeFruit');
     stock = removeFruit(stock)('Pineapple');
 
     console.log('checkStock');
-    checkStock(stock);
+    console.log(checkStock(stock));
 }
 
 main();
