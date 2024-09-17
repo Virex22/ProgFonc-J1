@@ -65,3 +65,6 @@ function main() {
 }
 
 main();
+
+
+export { Fruit, sellFruits, addStock, addFruit, removeFruit, checkStock };
